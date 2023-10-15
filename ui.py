@@ -46,6 +46,9 @@ def play_game(board, player):
         if player == turn:
             print("Your turn")
             move = get_user_move()
+            if not is_valid(board, move):
+                print("Invalid move please try again")
+                continue
             board = ttt.play_turn(board, player, move)
         else:
             print("Computer's turn")
@@ -54,6 +57,10 @@ def play_game(board, player):
         show_board(board)
         turn = ttt.opponent(turn)
     print_message(board)
+
+
+def is_valid(board, move):
+    return 0 <= move < 9 and board[move] == '-'
 
 
 def print_message(board):
