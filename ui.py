@@ -14,6 +14,8 @@ def show_board(board):
 
 def get_user_move():
     s = input("Enter a move: ")
+    while not s.isdigit():
+        s = input("Please Enter a valid move: ")
     move = int(s)
     return move - 1
 
