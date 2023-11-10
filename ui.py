@@ -27,7 +27,11 @@ def main():
     while True:
         print("If you want to start first enter 'x' else enter 'o'")
         player = input("Enter your choice: ")
-        player = 'X' if player == 'x' else 'O'
+        while player not in ["x", "o"]:
+            print("Invalid input, please enter 'x' or 'o'")
+            player = input("Enter your choice: ")
+            continue
+        player = player.upper()
         board = empty_board()
         print("You are playing as ", player)
         show_board(board)
